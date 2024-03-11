@@ -21,5 +21,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role' => 'admin',
         ]);
+
+        //call doctor
+        $this->call(DoctorSeeder::class);
     }
 }
