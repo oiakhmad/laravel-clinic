@@ -82,3 +82,4 @@
   * last step run migration  ``php artisan migrate:fresh --seed``
   * make controller, you can do this ``php artisan make:controller DoctorController`` and Create features according to your preferences
  
+ # new feature
