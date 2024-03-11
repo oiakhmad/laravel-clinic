@@ -11,13 +11,53 @@
 ## Documentation
    hello every one in here we learn how to build clinic app using laravel 10 and step by steb how to do this.  
 1. install laravel : composer create-project laravel/laravel laravel-clinic
-   if key not generate please run the code php artisan key:generate
-2. import template  
+   if key not generate please run the code ``php artisan key:generate``
+2. migration
+   firt time we much prepare configurasi database
+   - copy and paste .env.example with name .env
+   - create database local 
+   - doing configuration database  on .env as
+   `` 
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_db
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ``
+   if we needen inject data you can use factory as
+   ``
+    \App\Models\User::factory(10)->create();
+
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'phone' => '6285xxxx',
+            'password' => Hash::make('12345678'),
+            'role' => 'admin',
+        ]);
+   ``
+   -- run migration for create table 
+   ``php artisan migrate:fresh --seed``
+3. import template  
    - [reference template we use ](https://github.com/bahrie127/laravel10-stisla).
    - copas all folder in folder public to forder local project
    - copas all folder resources/views to local project, noted in here we copad template if nedded
    - rederect init  route (routes/web.php) as  return view('dashboard', ['type_menu' => 'dashboard']);
-
+4. fortify
+   [Laravel Fortify](https://laravel.com/docs/10.x/fortify#what-is-fortify)
+   is a frontend agnostic authentication backend implementation for Laravel. Fortify registers the routes and controllers needed to implement all of Laravel's authentication features, including login, registration, password reset, email verification, and more.
+   - install fortify ``composer require laravel/fortify``
+   - Next, publish Fortify's resources using the vendor:publish command:
+   ``php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"``
+   -  add page route on (app/Providers/FortifyServiceProvider.php) in fuction boot()
+   ``
+       Fortify::loginView(function(){
+        return view('pages.auth.login');
+       });
+   ``
+   please redirect view to your page login.
+   - you can login use ``route('login')`` on your html and logout ``{{ auth()->user()->name }}``
 
 ## About Laravel
 

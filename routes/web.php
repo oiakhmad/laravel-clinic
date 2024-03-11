@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.auth.login');
 });
 
-Route::get('/dashboard', function () {
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', function () {
+        return view('dashboard', ['type_menu' => 'dashboard']);
+    });
+
+    Route::get('/dashboard', function () {
     return view('dashboard', ['type_menu' => 'dashboard']);
+    });
+
+    Route::resource('users', UserController::class);
 });
