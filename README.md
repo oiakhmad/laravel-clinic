@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+## Documentation
+   hello every one in here we learn how to build clinic app using laravel 10 and step by steb how to do this.  
+1. install laravel : composer create-project laravel/laravel laravel-clinic
+   if key not generate please run the code php artisan key:generate
+2. import template  
+   - [reference template we use ](https://github.com/bahrie127/laravel10-stisla).
+   - copas all folder in folder public to forder local project
+   - copas all folder resources/views to local project, noted in here we copad template if nedded
+   - rederect init  route (routes/web.php) as  return view('dashboard', ['type_menu' => 'dashboard']);
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -64,3 +76,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
