@@ -58,7 +58,20 @@
    ``
    please redirect view to your page login.
    - you can login use ``route('login')`` on your html and logout ``{{ auth()->user()->name }}``
-
+5. CRUD users
+   in here we create feature for create,search, read, update, delete user.
+   * prepare page user 
+   * make controller, you can do this ``php artisan make:controller UserController``
+   * you can add more function as index, update, delete ect. if you chek route already on your app 
+     you can the code ``php artisan route:list``
+   * to make beautiful pagination please add the code on /app/Profiders/AppServiceProvider.php in functin boot() as
+   ``
+   public function boot(): void
+    {
+        //
+        Paginator::useBootstrapFour();
+    }
+   ``
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
